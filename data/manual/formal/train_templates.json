@@ -1,0 +1,472 @@
+[
+  {
+    "template_id": "formal_train_product_record_info_001",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "核对商品档案：编号 {product_id}，请读取名称、介绍和规格。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_product_record_info_002",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "商品档案核对中，请调出 {product_id} 的名称、商品介绍和规格参数。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_product_record_inventory_001",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "核对商品档案：编号 {product_id}，请读取当前库存件数。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_product_record_inventory_002",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "商品档案核对中，请调出 {product_id} 目前的库存数量。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_product_record_missing_id_001",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "核对商品档案：请读取名称、介绍和规格，但当前没有商品编号。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询商品资料的商品编号。"
+    }
+  },
+  {
+    "template_id": "formal_train_product_record_spec_update_001",
+    "family_id": "formal_product_record_check",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "核对商品档案：编号 {product_id}，请把规格内容改成“升级版”。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品规格。"
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_status_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "订单跟进单：编号 {order_id}，请查询付款状态和订单处理状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_status_002",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请核对跟进单中的订单 {order_id}：钱是否付好，订单目前处理到哪一步？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_shipping_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "订单跟进单：编号 {order_id}，请查询包裹运输进度和配送状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_shipping_002",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请核对跟进单中的订单 {order_id}：包裹运输到哪里，配送是否已经完成？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_ambiguous_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "ambiguous_intent",
+    "query_template": "订单跟进单：编号 {order_id}，请查询这笔订单目前的情况。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认要查询订单付款与处理状态，还是包裹运输与配送状态。"
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_missing_id_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "订单跟进单没有附订单编号，请查询这笔订单的付款状态和订单处理状态。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询付款与处理状态的订单编号。"
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_multiple_tasks_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "multiple_tasks",
+    "query_template": "订单跟进单：编号 {order_id}，请同时查询付款与处理状态，以及包裹运输与配送状态。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "本次先查询订单付款与处理状态，还是包裹运输与配送状态？"
+    }
+  },
+  {
+    "template_id": "formal_train_order_followup_cancel_001",
+    "family_id": "formal_order_followup_record",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "订单跟进单：编号 {order_id}，请直接取消这笔订单。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持取消订单。"
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_refund_status_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "售后处理记录：退款申请 {refund_id}，请读取审核进度和退款到账状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_refund_status_002",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "售后处理记录中的退款申请 {refund_id}：请确认审核是否完成，以及退款有没有到账。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_return_policy_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "售后处理记录：商品分类为{category_zh}，请读取该类商品的通用退货条件和期限。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_return_policy_002",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请补齐售后处理记录中{category_zh}类商品的退货规则：满足哪些条件可以退，需在多久内申请？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_refund_missing_id_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "售后处理记录只有订单编号 {order_id}，未填写退款申请编号；请查询退款审核进度和到账状态。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供退款申请编号；查询退款状态不能用订单编号代替。"
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_return_invalid_category_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "售后处理记录：分类填写为食品，请查询该类商品的通用退货条件和期限。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。"
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_refund_create_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "售后处理记录：订单 {order_id} 需要退款，请为该订单新建退款申请。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持创建退款申请，只能查询已有退款申请的状态。"
+    }
+  },
+  {
+    "template_id": "formal_train_after_sales_refund_withdraw_001",
+    "family_id": "formal_after_sales_case_note",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "售后处理记录：退款申请 {refund_id} 不再需要，请撤销这笔退款申请。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持撤销退款申请。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_summary_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "经营汇总登记：请查询 {start_date} 至 {end_date}（包含首尾日期）的{metric_zh}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "{metric}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_summary_002",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请补齐经营汇总登记，统计区间为 {start_date} 到 {end_date}，首尾两天都包含；需要统计的指标是{metric_zh}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "{metric}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_missing_metric_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "经营汇总登记：日期区间为 {start_date} 到 {end_date}，请查询这段时间的销售统计。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认要统计销售金额、订单数量，还是售出件数。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_missing_start_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "经营汇总登记：请统计截至 {end_date}（含当天）的{metric_zh}，但记录没有填写起始日期。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供统计起始日期。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_missing_end_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "经营汇总登记：请统计从 {start_date} 开始的{metric_zh}，但记录没有填写结束日期。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供统计结束日期。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_invalid_date_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "经营汇总登记：请查询 2025-02-30 至 2025-03-05 的{metric_zh}。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "起始日期 2025-02-30 不是有效的日历日期，请确认正确的起始日期。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_reversed_dates_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "经营汇总登记：请查询 2025-04-20 至 2025-04-10 的{metric_zh}。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "结束日期早于起始日期，请确认正确的起止日期。"
+    }
+  },
+  {
+    "template_id": "formal_train_sales_register_update_001",
+    "family_id": "formal_sales_register_entry",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "经营汇总登记：请把 {start_date} 至 {end_date} 的销售金额记录修改为 10000 元。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改销售金额记录，只能查询销售统计。"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_below_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "仓储补货登记：请列出库存件数严格小于 {threshold} 的商品。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_below_002",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请从仓储补货登记中筛出库存不足 {threshold} 件的商品，等于 {threshold} 件的不包括。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_missing_threshold_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "仓储补货登记：请找出库存偏低的商品，但登记中没有填写库存阈值。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供用于筛选低库存商品的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_zero_threshold_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "仓储补货登记：请筛选库存件数严格少于 0 的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须大于零，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_fractional_threshold_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "仓储补货登记：请筛选库存件数严格少于 3.5 的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须为正整数，请确认要使用的整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_negative_threshold_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "仓储补货登记：请筛选库存件数严格少于 -2 的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须大于零，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_multiple_tasks_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "multiple_tasks",
+    "query_template": "仓储补货登记：请列出库存严格少于 {threshold} 件的商品，并查询商品 {product_id} 的当前库存数量。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "本次先筛选低库存商品列表，还是查询指定商品的库存数量？"
+    }
+  },
+  {
+    "template_id": "formal_train_stock_register_update_001",
+    "family_id": "formal_stock_replenishment_register",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "仓储补货登记：请将商品 {product_id} 的库存数量改为 80 件。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品库存数量。"
+    }
+  }
+]

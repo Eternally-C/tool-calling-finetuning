@@ -1,0 +1,258 @@
+[
+  {
+    "template_id": "validation_inventory_context_001",
+    "family_id": "inventory_restock_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "我正在准备补货清单，需要知道现有库存件数；商品编号：{product_id}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_sales_report_missing_metric_001",
+    "family_id": "sales_report_context_missing_metric",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "销售报表的时间范围已定为 {start_date} 到 {end_date}，请帮我统计这段时间的销售表现。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "这份销售报表需要统计销售金额、订单数量，还是售出件数？"
+    }
+  },
+  {
+    "template_id": "validation_refund_create_001",
+    "family_id": "refund_creation_request",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "订单 {order_id} 需要退款，请帮我创建退款申请。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前退款工具只能查询已有申请的状态，不支持创建退款申请。"
+    }
+  },
+  {
+    "template_id": "validation_product_display_card_001",
+    "family_id": "product_display_card_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "商品展示卡片缺少名称、介绍和规格，请查出这些信息；商品编号：{product_id}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_order_payment_processing_001",
+    "family_id": "order_payment_processing_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "想确认付款是否已完成，以及商家是否开始处理；需要查询的订单编号是 {order_id}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_shipping_delivery_wait_001",
+    "family_id": "shipping_delivery_wait_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "我在等包裹送达，想知道现在的运输进度和配送状态；订单编号：{order_id}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_refund_followup_001",
+    "family_id": "refund_followup_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "退款申请已经提交，请确认目前的处理进度和款项是否到账；申请编号：{refund_id}。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_return_before_purchase_001",
+    "family_id": "return_before_purchase_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "我准备购买{category_zh}，想先确认允许退货的条件，以及申请退货的期限。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_low_stock_replenishment_001",
+    "family_id": "low_stock_replenishment_context_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "我要安排补货，请筛出当前库存件数严格少于 {threshold} 的商品。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "validation_sales_report_revenue_001",
+    "family_id": "sales_report_explicit_metric_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "报表要填的是销售金额，请汇总 {start_date} 至 {end_date}（含首尾两天）的数据。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "revenue"
+      }
+    }
+  },
+  {
+    "template_id": "validation_sales_report_order_count_001",
+    "family_id": "sales_report_explicit_metric_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "报表要填的是订单数量，请汇总 {start_date} 至 {end_date}（含首尾两天）的数据。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "order_count"
+      }
+    }
+  },
+  {
+    "template_id": "validation_sales_report_units_sold_001",
+    "family_id": "sales_report_explicit_metric_query",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "报表要填的是售出件数，请汇总 {start_date} 至 {end_date}（含首尾两天）的数据。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "units_sold"
+      }
+    }
+  },
+  {
+    "template_id": "validation_inventory_restock_missing_id_001",
+    "family_id": "inventory_restock_context_query",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "我正在准备补货清单，需要知道这款商品的现有库存件数。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询库存的商品编号。"
+    }
+  },
+  {
+    "template_id": "validation_order_customer_followup_ambiguous_001",
+    "family_id": "order_customer_followup_unspecified_query",
+    "split": "validation",
+    "case_type": "ambiguous_intent",
+    "query_template": "客服回访记录只有一句“确认订单 {order_id} 目前的情况”，没有说明具体想查什么，请帮忙处理。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "需要确认订单的付款和处理状态，还是包裹的运输和配送状态？"
+    }
+  },
+  {
+    "template_id": "validation_inventory_refund_combined_001",
+    "family_id": "inventory_refund_combined_request",
+    "split": "validation",
+    "case_type": "multiple_tasks",
+    "query_template": "客服记录需要同时确认商品 {product_id} 的库存和退款申请 {refund_id} 的处理进度，请一起查询。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "本次先查询商品库存，还是退款申请的处理进度？"
+    }
+  },
+  {
+    "template_id": "validation_low_stock_fractional_threshold_001",
+    "family_id": "low_stock_replenishment_context_query",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "我要安排补货，请筛出当前库存件数严格少于 2.5 的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须是正整数，请确认要使用的整数阈值。"
+    }
+  },
+  {
+    "template_id": "validation_sales_report_reversed_dates_001",
+    "family_id": "sales_report_explicit_metric_query",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "报表要填的是销售金额，请汇总 {end_date} 至 {start_date}（含首尾两天）的数据。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "结束日期早于开始日期，请确认正确的统计起止日期。"
+    }
+  },
+  {
+    "template_id": "validation_return_before_purchase_invalid_category_001",
+    "family_id": "return_before_purchase_context_query",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "我准备购买食品，想先确认允许退货的条件，以及申请退货的期限。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "当前分类只支持电子产品、服装和家居用品，请确认要查询的商品分类。"
+    }
+  },
+  {
+    "template_id": "validation_order_address_update_001",
+    "family_id": "order_delivery_address_update_request",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "订单 {order_id} 的配送地址需要更正，请把收货地址改成“示例市示例路 1 号”。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改订单收货地址。"
+    }
+  },
+  {
+    "template_id": "validation_product_price_update_001",
+    "family_id": "product_price_adjustment_request",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "商品 {product_id} 要参加促销，请将售价改为 99 元。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品售价。"
+    }
+  }
+]

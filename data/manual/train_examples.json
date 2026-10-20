@@ -1,0 +1,124 @@
+[
+  {
+    "id": "train_001",
+    "query": "请介绍商品 P2001 的名称和规格。",
+    "expected": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "P2001"
+      }
+    }
+  },
+  {
+    "id": "train_002",
+    "query": "商品 P2001 现在还有多少库存？",
+    "expected": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "P2001"
+      }
+    }
+  },
+  {
+    "id": "train_003",
+    "query": "帮我查询订单 O2001 的付款状态和订单处理状态。",
+    "expected": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "O2001"
+      }
+    }
+  },
+  {
+    "id": "train_004",
+    "query": "订单 O2001 的包裹运输到哪里了？",
+    "expected": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "O2001"
+      }
+    }
+  },
+  {
+    "id": "train_005",
+    "query": "查询退款申请 R2001 的审核进度和到账状态。",
+    "expected": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "R2001"
+      }
+    }
+  },
+  {
+    "id": "train_006",
+    "query": "服装类商品的通用退货条件和退货期限是什么？",
+    "expected": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "clothing"
+      }
+    }
+  },
+  {
+    "id": "train_007",
+    "query": "统计 2026 年 9 月 1 日至 2026 年 9 月 30 日的销售金额。",
+    "expected": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30",
+        "metric": "revenue"
+      }
+    }
+  },
+  {
+    "id": "train_008",
+    "query": "列出库存数量严格少于 10 件的商品。",
+    "expected": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": 10
+      }
+    }
+  },
+  {
+    "id": "train_009",
+    "query": "帮我查一下这件商品还有多少库存。",
+    "expected": {
+      "action": "clarify",
+      "message": "请提供需要查询的商品编号。"
+    }
+  },
+  {
+    "id": "train_010",
+    "query": "查询从 2026 年 9 月 30 日开始，到 2026 年 9 月 1 日结束的销售金额。",
+    "expected": {
+      "action": "clarify",
+      "message": "结束日期早于开始日期，请确认正确的起止日期。"
+    }
+  },
+  {
+    "id": "train_011",
+    "query": "请取消订单 O2001。",
+    "expected": {
+      "action": "unsupported",
+      "message": "当前工具不支持取消订单。"
+    }
+  },
+  {
+    "id": "train_012",
+    "query": "把商品 P2001 的库存修改为 50 件。",
+    "expected": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品库存。"
+    }
+  }
+]

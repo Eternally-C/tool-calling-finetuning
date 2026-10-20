@@ -1,0 +1,358 @@
+[
+  {
+    "template_id": "formal_test_correction_product_info_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请查商品 {product_id} 的库存。更正：撤回上一句查询要求，本次只查这件商品的名称、介绍和规格。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_inventory_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只查这件商品的当前库存数量。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_order_status_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请查订单 {order_id} 的包裹运输进度。更正：撤回上一句查询要求，本次只查这笔订单的付款状态和处理状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_shipping_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请查订单 {order_id} 的付款和处理状态。更正：撤回上一句查询要求，本次只查这笔订单的包裹运输进度和配送状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_refund_status_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请为订单 {order_id} 新建退款申请。更正：撤回上一句操作要求，本次只查询已有退款申请 {refund_id} 的审核进度和退款到账状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_return_policy_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请为订单 {order_id} 提交退货申请。更正：撤回上一句操作要求，本次只查询{category_zh}类商品的通用退货条件和退货期限。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_summary_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请把 {start_date} 至 {end_date} 的销售金额改成 10000 元。更正：撤回上一句修改要求，本次只查询这一日期区间的{metric_zh}，起止两天都包含。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "{metric}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_low_stock_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "valid_call",
+    "query_template": "请把商品 {product_id} 的库存改为 100 件。更正：撤回上一句修改要求，本次只列出当前库存数量严格小于 {threshold} 件的商品，等于阈值的不包括。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_test_correction_missing_product_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查订单 {order_id} 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询库存的商品编号。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_missing_order_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询包裹运输与配送状态的订单编号。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_missing_refund_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查订单 {order_id} 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询退款状态的退款申请编号。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_missing_metric_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请列出库存数量严格小于 {threshold} 件的商品。更正：撤回上一句查询要求，本次只查询 {start_date} 至 {end_date} 的销售统计，首尾日期包含，但我还没有选定统计指标。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认要统计销售金额、订单数量，还是售出件数。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_missing_start_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查退款申请 {refund_id} 的审核进度。更正：撤回上一句查询要求，本次只统计截至 {end_date}（含当天）的{metric_zh}，起始日期还没有确定。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供销售汇总的起始日期。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_missing_end_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只统计从 {start_date}（含当天）开始的{metric_zh}，结束日期还没有确定。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供销售汇总的结束日期。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_low_stock_missing_threshold_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "missing_parameter",
+    "query_template": "请查商品 {product_id} 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于某个阈值的商品，但这个阈值还没有确定。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要使用的正整数库存阈值。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_ambiguous_order_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "ambiguous_intent",
+    "query_template": "请查商品 {product_id} 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 {order_id} 现在的情况，具体查询内容还没确定。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_invalid_date_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请列出库存数量严格小于 {threshold} 件的商品。更正：撤回上一句查询要求，本次只统计 2022-06-31 至 2022-07-05 的{metric_zh}，首尾日期包含。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "2022-06-31 不是有效的日历日期，请确认正确的统计起止日期。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_sales_reversed_dates_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请查商品 {product_id} 的当前库存数量。更正：撤回上一句查询要求，本次只汇总{metric_zh}，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "结束日期早于起始日期，请确认正确的统计起止日期。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_return_invalid_category_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只查询食品类商品的通用退货条件和退货期限。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "当前退货规则查询仅支持电子产品、服装和家居用品，请确认要查询的商品分类。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_low_stock_fractional_threshold_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请查商品 {product_id} 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于 6.5 件的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_low_stock_zero_threshold_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 0 件的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_low_stock_negative_threshold_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "invalid_parameter",
+    "query_template": "请查订单 {order_id} 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_multiple_inventory_shipping_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "multiple_tasks",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次请同时查询这件商品的当前库存数量，以及订单 {order_id} 的包裹运输进度和配送状态，两项都要。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认先查询商品库存，还是订单的包裹运输与配送状态。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_multiple_sales_metrics_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "multiple_tasks",
+    "query_template": "请查退款申请 {refund_id} 的审核进度。更正：撤回上一句查询要求，本次请同时统计 {start_date} 至 {end_date} 的销售金额和订单数量，首尾日期包含，两项指标都要。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认先统计该日期区间的销售金额，还是订单数量。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_cancel_order_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查订单 {order_id} 的付款和处理状态。更正：撤回上一句查询要求，本次只要求取消这笔订单，不需要查询订单状态。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持取消订单。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_create_refund_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查退款申请 {refund_id} 的审核进度。更正：撤回上一句查询要求，本次只要求为订单 {order_id} 新建退款申请，不查询已有退款申请。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持创建退款申请，只能查询已有退款申请的状态。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_modify_inventory_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查商品 {product_id} 的当前库存数量。更正：撤回上一句查询要求，本次只要求把这件商品的库存数量改为 100 件，不需要查询库存。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品库存数量。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_modify_price_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查商品 {product_id} 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品价格。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_modify_address_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查订单 {order_id} 的包裹运输进度。更正：撤回上一句查询要求，本次只要求把这笔订单的收货地址改为“示例市示例路 18 号”，不需要查询物流。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改订单收货地址。"
+    }
+  },
+  {
+    "template_id": "formal_test_correction_modify_sales_001",
+    "family_id": "formal_test_explicit_request_correction",
+    "split": "test",
+    "case_type": "unsupported_operation",
+    "query_template": "请查 {start_date} 至 {end_date} 的销售金额。更正：撤回上一句查询要求，本次只要求把这一日期区间记录的销售金额改为 10000 元，不需要查询统计结果。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改销售金额记录，只能查询销售统计。"
+    }
+  }
+]

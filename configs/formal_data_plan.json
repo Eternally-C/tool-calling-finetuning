@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "stage": "formal",
+  "status": "planned",
+  "language": "zh",
+  "max_tool_calls_per_sample": 1,
+  "tool_schema_file": "configs/tools.json",
+  "split_policy_file": "configs/data_split_policy.json",
+  "assignment_unit": "family_id",
+  "target_action_counts": {
+    "train": {
+      "call": 360,
+      "clarify": 180,
+      "unsupported": 60
+    },
+    "validation": {
+      "call": 120,
+      "clarify": 60,
+      "unsupported": 20
+    },
+    "test": {
+      "call": 120,
+      "clarify": 60,
+      "unsupported": 20
+    }
+  },
+  "paths": {
+    "manual": "data/manual/formal",
+    "generated": "data/generated/formal",
+    "processed": "data/processed/formal_sft"
+  },
+  "requirements": [
+    "先按表达族分配数据分区，再展开参数；同源改写保留在同一分区。",
+    "正式分区之间隔离商品编号、订单编号、退款编号、有效日期区间和正整数阈值。",
+    "排除与已有 pilot 完全相同的样本；正式 Test 不复用 pilot 的表达模板及同源改写。",
+    "除检查 family_id 和 query 外，还需人工检查跨分区的近似改写。",
+    "call 覆盖全部八个工具，以及销售指标和商品分类的枚举分支。",
+    "clarify 覆盖缺参、意图歧义、非法参数和多个独立任务。",
+    "unsupported 覆盖当前工具不能执行的操作。",
+    "类别配比用于覆盖设计，不代表真实业务请求分布。",
+    "Validation 用于方案选择；Test 只在最终方案锁定后评估，结果不用于调参。",
+    "保留已有 pilot 数据、权重、输出和审查材料，正式数据使用独立路径。"
+  ]
+}

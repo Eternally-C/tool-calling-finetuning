@@ -1,0 +1,336 @@
+[
+  {
+    "template_id": "formal_validation_mixed_ids_product_info_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "页面上同时有订单编号 {order_id} 和商品编号 {product_id}。这次只查看商品的名称、介绍和规格。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_inventory_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "订单编号 {order_id} 只是附带信息；我这次只问商品 {product_id} 现在还剩多少件。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_missing_product_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "页面只显示订单编号 {order_id}，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询库存的商品编号，不能用订单编号代替。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_rename_product_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "页面上有订单编号 {order_id} 和商品编号 {product_id}；请把这件商品的名称改为“便携款”。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品名称。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_order_status_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "退款申请编号 {refund_id} 只是页面上的关联信息；这次请查订单 {order_id} 是否已付款，以及商家处理到哪一步。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_shipping_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "商品编号 {product_id} 不用查询。我只想知道订单 {order_id} 的包裹运到哪里、配送有没有完成。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_missing_order_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "我手上只有商品编号 {product_id}，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_ambiguous_order_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "ambiguous_intent",
+    "query_template": "页面列着商品编号 {product_id} 和订单编号 {order_id}，请查查这笔订单目前的情况。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_address_update_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "商品编号 {product_id} 和订单编号 {order_id} 都在这里，请把这笔订单的收货地址改为“示例市示例路 8 号”。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改订单收货地址。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_refund_status_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "页面有订单 {order_id} 和退款申请 {refund_id}。我这次只查退款申请的审核进度，以及退款款项有没有到账。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_return_policy_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "页面显示商品编号 {product_id}、订单编号 {order_id}，商品分类是{category_zh}。我只问这个分类通用的退货条件和期限。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_missing_refund_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "页面只列出订单编号 {order_id} 和商品编号 {product_id}，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_invalid_category_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "页面显示商品编号 {product_id}、订单编号 {order_id}，商品分类填写为食品。我只问这个分类通用的退货条件和期限。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。"
+    }
+  },
+  {
+    "template_id": "formal_validation_mixed_ids_execute_refund_001",
+    "family_id": "formal_validation_mixed_identifier_focus",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "页面有订单 {order_id} 和退款申请 {refund_id}，请直接执行退款，把钱退回支付账户。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持执行退款，只能查询已有退款申请的状态。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_summary_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "请按以下条件做一次销售汇总：统计项={metric_zh}；起始日={start_date}；截止日={end_date}；首尾日期都包含。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "{metric}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_missing_metric_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "请按以下条件做一次销售汇总：起始日={start_date}；截止日={end_date}；首尾日期都包含。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请确认要统计销售金额、订单数量，还是售出件数。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_missing_start_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "销售汇总条件：统计项={metric_zh}；截止日={end_date}（含当天）。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供销售汇总的起始日期。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_missing_end_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "销售汇总条件：统计项={metric_zh}；起始日={start_date}（含当天）。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供销售汇总的结束日期。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_invalid_date_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "销售汇总条件：统计项={metric_zh}；起始日=2025-04-31；截止日=2025-05-05。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "起始日期 2025-04-31 不是有效的日历日期，请确认正确的起始日期。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_reversed_dates_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "销售汇总条件：统计项={metric_zh}；起始日=2025-08-20；截止日=2025-08-10。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "结束日期早于起始日期，请确认正确的统计起止日期。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_multiple_metrics_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "multiple_tasks",
+    "query_template": "销售汇总条件：起始日={start_date}；截止日={end_date}；统计项=销售金额、订单数量；首尾日期都包含。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "本次先统计销售金额，还是订单数量？"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_sales_update_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "销售汇总条件：统计项={metric_zh}；起始日={start_date}；截止日={end_date}；操作=将统计结果修改为 10000。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改销售统计结果，只能查询销售统计。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_low_stock_below_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "valid_call",
+    "query_template": "商品筛选条件：库存件数严格小于 {threshold}，等于 {threshold} 的不算；输出=符合条件的商品列表。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_low_stock_missing_threshold_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "missing_parameter",
+    "query_template": "商品筛选条件：库存偏低；输出=符合条件的商品列表。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供用于筛选低库存商品的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_low_stock_zero_threshold_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "商品筛选条件：库存件数严格小于 0；输出=符合条件的商品列表。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须大于零，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_low_stock_fractional_threshold_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "商品筛选条件：库存件数严格小于 4.5；输出=符合条件的商品列表。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须为正整数，请确认要使用的整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_low_stock_negative_threshold_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "invalid_parameter",
+    "query_template": "商品筛选条件：库存件数严格小于 -4；输出=符合条件的商品列表。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须大于零，请确认要使用的正整数阈值。"
+    }
+  },
+  {
+    "template_id": "formal_validation_fields_stock_update_001",
+    "family_id": "formal_validation_request_fields",
+    "split": "validation",
+    "case_type": "unsupported_operation",
+    "query_template": "库存调整条件：商品编号={product_id}；目标库存=60；操作=写入新的库存数量。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品库存数量，只能查询库存信息。"
+    }
+  }
+]

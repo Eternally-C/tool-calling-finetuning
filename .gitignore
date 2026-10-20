@@ -1,0 +1,24 @@
+# macOS 与编辑器本地配置
+.DS_Store
+.vscode/
+
+# Python 缓存和本地安装产物
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# 本地虚拟环境
+.venv/
+venv/
+
+# 下载的基座模型
+/models/
+
+# LoRA 权重保留在本地；配置和训练指标仍可纳入版本管理
+/adapters/**/*.safetensors
+
+# 临时训练探针生成物
+/adapters/probes/

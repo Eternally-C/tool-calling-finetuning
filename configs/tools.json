@@ -1,0 +1,164 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_product_info",
+      "description": "查询指定商品的名称、介绍和规格。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "商品编号，例如 P2001。",
+            "minLength": 1
+          }
+        },
+        "required": ["product_id"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_inventory",
+      "description": "查询指定商品当前的库存数量。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "商品编号，例如 P2001。",
+            "minLength": 1
+          }
+        },
+        "required": ["product_id"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_order_status",
+      "description": "查询指定订单的付款状态和订单处理状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "订单编号，例如 O2001。",
+            "minLength": 1
+          }
+        },
+        "required": ["order_id"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_shipping_status",
+      "description": "查询指定订单的包裹运输进度和配送状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "订单编号，例如 O2001。",
+            "minLength": 1
+          }
+        },
+        "required": ["order_id"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_refund_status",
+      "description": "查询指定退款申请的审核进度和退款到账状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "refund_id": {
+            "type": "string",
+            "description": "退款申请编号，例如 R2001。",
+            "minLength": 1
+          }
+        },
+        "required": ["refund_id"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_return_policy",
+      "description": "查询指定商品分类的通用退货条件和退货期限。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "商品分类：electronics 表示电子产品，clothing 表示服装，home 表示家居用品。",
+            "enum": ["electronics", "clothing", "home"]
+          }
+        },
+        "required": ["category"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_sales_summary",
+      "description": "查询指定日期范围内的一项销售统计指标，起止日期均包含在查询范围内。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "查询起始日期，格式为 YYYY-MM-DD。",
+            "format": "date"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "查询结束日期，格式为 YYYY-MM-DD，须不早于起始日期。",
+            "format": "date"
+          },
+          "metric": {
+            "type": "string",
+            "description": "统计指标：revenue 表示销售金额，order_count 表示订单数量，units_sold 表示售出商品件数。",
+            "enum": ["revenue", "order_count", "units_sold"]
+          }
+        },
+        "required": ["start_date", "end_date", "metric"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "list_low_stock_products",
+      "description": "列出库存数量严格小于指定阈值的商品。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "threshold": {
+            "type": "integer",
+            "description": "库存数量阈值，必须为正整数，例如 10。",
+            "minimum": 1
+          }
+        },
+        "required": ["threshold"],
+        "additionalProperties": false
+      }
+    }
+  }
+]

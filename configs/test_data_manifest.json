@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "stage": "formal",
+  "split": "test",
+  "status": "frozen_before_inference",
+  "selected_file": "data/generated/formal/test_selected.jsonl",
+  "sample_count": 200,
+  "action_counts": {
+    "call": 120,
+    "clarify": 60,
+    "unsupported": 20
+  },
+  "sampling": {
+    "method": "coverage_then_action_sampling_v1",
+    "seed": 42,
+    "mandatory_count": 43
+  },
+  "coverage": {
+    "template_count": 30,
+    "family_count": 1,
+    "tool_count": 8,
+    "same_day_sales_call_count": 1
+  },
+  "review": {
+    "formal_pairwise_exact_isolation": "passed",
+    "test_vs_prior_template_text_and_parameter_checks": "passed",
+    "template_text_review": "mentor_review",
+    "scope_note": "Test 为人工模板与参数组合生成，全部采用单轮明确撤回旧请求、再提出新请求的结构。",
+    "limitation": "工具意图和常用表达与开发数据共享；精确隔离与表达族标记不能证明完全语义独立或真实业务请求上的广泛泛化。"
+  },
+  "policy": {
+    "verify_hashes_before_inference": true,
+    "same_test_data_for_baseline_and_candidate": true,
+    "allow_test_tuning": false
+  },
+  "files_sha256": {
+    "configs/final_evaluation_plan.json": "4c8df44bd54c8386dae03f897ff273cf3ad5cd036c42901b254efbe70d8883ab",
+    "configs/data_split_policy.json": "ef3bc7e545ae5da7c57fa80c89484409e89050a808fc5d050da9a5e35d55df5c",
+    "configs/formal_data_plan.json": "7e0f11719b1fd0e8519ae7758a02e4b180d987c25247139e6033a46037237875",
+    "configs/tools.json": "77463c925a782fc6c07c961d08131273b75552bf3a894c2c2945778a9e64a70c",
+    "configs/system_prompt.txt": "01f155706685010049486e2b62df8f308bc577e5598972b0c8a4206de342be33",
+    "data/manual/formal/test_templates.json": "2fbf879b21029734094a8c9970aefe23c846b8426371bbe6aa0f55d2c7fc52f4",
+    "data/generated/formal/test_parameter_sets.json": "0292edba581f71813edcb20e0e65739cd64c545cf494ea3eb976a968d3af7d65",
+    "data/generated/formal/test_candidates.jsonl": "a63447d1a53eaa45a2dcf833640cd9c84e111d0570d40625ffb9858a5735ddf1",
+    "data/generated/formal/test_selected.jsonl": "1488242f249e3817aafa1fd534a1bb0ff5fbe5243404816674d310066c72c0ec",
+    "data/generated/formal/train_parameter_sets.json": "c287ee7f5e9fb63c839d51031abc4f580261f7ea4b6c0584c0098e1da676f43d",
+    "data/generated/formal/validation_parameter_sets.json": "3f29f203ab31d6d7e6a9c144f7ecb5195e9c14d9026ff9329025d968d3397382",
+    "data/generated/formal/train_selected.jsonl": "d1e17649f24c1ae6aeae90bbcf707b8e9f465851e995c09cc360f2de22eb5cd9",
+    "data/generated/formal/validation_selected.jsonl": "e1dfe47ce1863b2ce98ca88ca766779b4eb38386e150b04a2629eaa25e480bc2",
+    "scripts/preview_formal_test_batch.py": "067df2935462711f619ccfe8f0791a79815812ddbf1eca3bbba798bfbad7521e",
+    "scripts/select_formal_test.py": "2ebae6c499c10452bce26a202180fd2ec970d4471ea71be3a79cb2003965a0f3",
+    "scripts/diagnostics/check_formal_test_isolation.py": "28afcb288d07539cffff4d107662b7a8ad7e6c4aee0eb7450b56ba52105f3ed2",
+    "src/tool_calling/data/formal_isolation.py": "048085b765b45d727df466db2dfdec58c14cf2ceba5433847f21f55c595739f9"
+  }
+}

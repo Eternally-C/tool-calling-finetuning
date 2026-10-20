@@ -1,0 +1,1869 @@
+{
+  "review_version": 1,
+  "stage": "formal",
+  "split": "test",
+  "review_type": "paired_non_call_messages",
+  "review_method": "mentor_guided_non_blind",
+  "sources": {
+    "baseline": {
+      "source_result": "results/formal/test/baseline.jsonl",
+      "source_result_sha256": "b0c4276f6b78f2d67b9d2a0728f74570a13763e2f6617526a2035038b5035087",
+      "run_info": {
+        "stage": "formal",
+        "mode": "test_baseline",
+        "variant": "baseline",
+        "sample_selection": "all",
+        "started_at_utc": "2026-10-18T13:00:16.305004+00:00",
+        "model_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/models/qwen3_8b_4bit",
+        "model_repository": "mlx-community/Qwen3-8B-4bit",
+        "model_revision": "545dc4251c05440727734bcd94334791f6ab0192",
+        "adapter_path": null,
+        "checkpoint_path": null,
+        "checkpoint_sha256": null,
+        "adapter_config_sha256": null,
+        "train_data_sha256": null,
+        "manifest_sha256": "54144c46ccf77ddc0f2a021f18b67ba16f2a0c70e1062ce6d85c8d2cd0085cfe",
+        "plan_sha256": "4c8df44bd54c8386dae03f897ff273cf3ad5cd036c42901b254efbe70d8883ab",
+        "data_sha256": "1488242f249e3817aafa1fd534a1bb0ff5fbe5243404816674d310066c72c0ec",
+        "system_content_sha256": "fce2a9bb8a4f8531bb03f66962482f5f075a6fbe3d48e1281b67961fb8d4c857",
+        "generation_config": {
+          "enable_thinking": false,
+          "temperature": 0.0,
+          "max_tokens": 256
+        },
+        "runtime_versions": {
+          "python": "3.12.15",
+          "mlx": "0.32.3",
+          "mlx_lm": "0.32.0",
+          "transformers": "5.19.0",
+          "numpy": "2.5.4"
+        },
+        "code_sha256": {
+          "scripts/run_formal_test_batch.py": "157460ab17d74f763d51f6f5d8de67423b40aff9bf6f522efff53ba3ae012bf9",
+          "src/tool_calling/data/frozen_test.py": "c57dbd9ff21246d1307b883e38267117c678507291f2e5ca1a0dfeac3a4ac70c",
+          "src/tool_calling/modeling/loading.py": "1112307b18c376e9d2b477dfd04ef8013ec834a6fae92b46ec7f9d4fae12bdd3",
+          "src/tool_calling/evaluation/parsing.py": "dc2f7a0febd29f911d4b10c247b5bfec81a29225faf63c5b76b4f5c6d432a7c9",
+          "src/tool_calling/evaluation/validation.py": "27ace5ba1cd689a6f0b2778078f96c60d882a6a5b4dc8d7b5ea23f4cd881f36b",
+          "src/tool_calling/evaluation/scoring.py": "16130504dc377a44cc0e1956e575e451edb43f963ee2a360fd43c1102e7fa519"
+        }
+      }
+    },
+    "step450": {
+      "source_result": "results/formal/test/step450.jsonl",
+      "source_result_sha256": "c27c8f217987784355e92a1c6234e70e8dd5f2685690609d5ac4ec0b958614da",
+      "run_info": {
+        "stage": "formal",
+        "mode": "test_lora",
+        "variant": "step450",
+        "sample_selection": "all",
+        "started_at_utc": "2026-10-18T13:16:35.107711+00:00",
+        "model_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/models/qwen3_8b_4bit",
+        "model_repository": "mlx-community/Qwen3-8B-4bit",
+        "model_revision": "545dc4251c05440727734bcd94334791f6ab0192",
+        "adapter_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/adapters/formal/run_20261017T014551_717380Z",
+        "checkpoint_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/adapters/formal/run_20261017T014551_717380Z/0000450_adapters.safetensors",
+        "checkpoint_sha256": "a53e4c9f7fd3a8a449343bbdcf7f823bdc538d0b00ae77fff958ccb12c074e6b",
+        "adapter_config_sha256": "4f2175e09bb6091e720c4c11ac80ea00bb2b25e8a1da38cfe90e9b4c9834d178",
+        "train_data_sha256": "5424b77d12f767004f7d0ece6c385aac5b60b9621daa82ed351414a4bfa0f837",
+        "manifest_sha256": "54144c46ccf77ddc0f2a021f18b67ba16f2a0c70e1062ce6d85c8d2cd0085cfe",
+        "plan_sha256": "4c8df44bd54c8386dae03f897ff273cf3ad5cd036c42901b254efbe70d8883ab",
+        "data_sha256": "1488242f249e3817aafa1fd534a1bb0ff5fbe5243404816674d310066c72c0ec",
+        "system_content_sha256": "fce2a9bb8a4f8531bb03f66962482f5f075a6fbe3d48e1281b67961fb8d4c857",
+        "generation_config": {
+          "enable_thinking": false,
+          "temperature": 0.0,
+          "max_tokens": 256
+        },
+        "runtime_versions": {
+          "python": "3.12.15",
+          "mlx": "0.32.3",
+          "mlx_lm": "0.32.0",
+          "transformers": "5.19.0",
+          "numpy": "2.5.4"
+        },
+        "code_sha256": {
+          "scripts/run_formal_test_batch.py": "157460ab17d74f763d51f6f5d8de67423b40aff9bf6f522efff53ba3ae012bf9",
+          "src/tool_calling/data/frozen_test.py": "c57dbd9ff21246d1307b883e38267117c678507291f2e5ca1a0dfeac3a4ac70c",
+          "src/tool_calling/modeling/loading.py": "1112307b18c376e9d2b477dfd04ef8013ec834a6fae92b46ec7f9d4fae12bdd3",
+          "src/tool_calling/evaluation/parsing.py": "dc2f7a0febd29f911d4b10c247b5bfec81a29225faf63c5b76b4f5c6d432a7c9",
+          "src/tool_calling/evaluation/validation.py": "27ace5ba1cd689a6f0b2778078f96c60d882a6a5b4dc8d7b5ea23f4cd881f36b",
+          "src/tool_calling/evaluation/scoring.py": "16130504dc377a44cc0e1956e575e451edb43f963ee2a360fd43c1102e7fa519"
+        }
+      }
+    }
+  },
+  "criteria": [
+    "clarify 应指出实际需要补充、修正或澄清的信息。",
+    "unsupported 应准确说明当前不支持的具体操作。",
+    "说明不得编造业务事实、工具能力，或声称已完成操作。",
+    "按语义判断，不要求与 reference_message 逐字一致。"
+  ],
+  "allowed_statuses": [
+    "pending",
+    "pass",
+    "needs_improvement",
+    "not_applicable"
+  ],
+  "items": [
+    {
+      "id": "formal_test_correction_return_invalid_category_001__formal_test_params_022",
+      "query": "请查商品 P12122 的名称和规格。更正：撤回上一句查询要求，本次只查询食品类商品的通用退货条件和退货期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货规则查询仅支持电子产品、服装和家居用品，请确认要查询的商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供食品类商品对应的分类参数，当前工具不支持直接查询食品类商品的退货条件和退货期限。",
+          "status": "needs_improvement",
+          "reason": "要求补充食品类对应的分类参数，但食品不在支持枚举中，未引导用户确认支持范围内的商品分类。",
+          "suggested_message": "当前退货规则查询仅支持电子产品、服装和家居用品，请确认要查询的商品分类。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询退货条件和退货期限的商品分类，必须是 electronics、clothing 或 home。",
+          "status": "pass",
+          "reason": "准确说明退货规则查询支持的三类商品，并要求确认查询分类。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_address_001__formal_test_params_023",
+      "query": "请查订单 O13123 的包裹运输进度。更正：撤回上一句查询要求，本次只要求把这笔订单的收货地址改为“示例市示例路 18 号”，不需要查询物流。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请确认是否需要修改订单 O13123 的收货地址为 '示例市示例路 18 号'，并明确是否需要其他操作。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先修改订单收货地址，不需要查询物流。请确认要修改的收货地址。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_invalid_date_001__formal_test_params_013",
+      "query": "请列出库存数量严格小于 93 件的商品。更正：撤回上一句查询要求，本次只统计 2022-06-31 至 2022-07-05 的售出件数，首尾日期包含。",
+      "expected_action": "clarify",
+      "reference_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确需要查询的统计指标是售出件数（units_sold）还是其他指标。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计售出件数的销售统计指标，是订单数量、销售金额，还是售出件数。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_004",
+      "query": "请查商品 P12104 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_016",
+      "query": "请查商品 P12116 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_multiple_inventory_shipping_001__formal_test_params_020",
+      "query": "请查商品 P12120 的名称和规格。更正：撤回上一句查询要求，本次请同时查询这件商品的当前库存数量，以及订单 O13120 的包裹运输进度和配送状态，两项都要。",
+      "expected_action": "clarify",
+      "reference_message": "请确认先查询商品库存，还是订单的包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确需要先处理商品查询还是订单查询。",
+          "status": "pass",
+          "reason": "正确要求用户在最终仍有效的两项查询之间选择先处理哪一项。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先筛选要查询商品库存，还是订单包裹运输状态？",
+          "status": "pass",
+          "reason": "正确要求用户在最终仍有效的两项查询之间选择先处理哪一项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_start_001__formal_test_params_030",
+      "query": "请查退款申请 R14130 的审核进度。更正：撤回上一句查询要求，本次只统计截至 2022-12-15（含当天）的售出件数，起始日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期以完成售出件数的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_missing_threshold_001__formal_test_params_019",
+      "query": "请查商品 P12119 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于某个阈值的商品，但这个阈值还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要使用的正整数库存阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供库存数量的阈值，以便查询库存数量严格小于该阈值的商品。",
+          "status": "pass",
+          "reason": "准确要求用户补充低库存商品查询所缺少的库存阈值。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要使用的正整数库存阈值。",
+          "status": "pass",
+          "reason": "准确要求用户补充低库存商品查询所缺少的库存阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_metric_001__formal_test_params_018",
+      "query": "请列出库存数量严格小于 98 件的商品。更正：撤回上一句查询要求，本次只查询 2022-07-24 至 2022-07-29 的销售统计，首尾日期包含，但我还没有选定统计指标。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请指定需要查询的销售统计指标（revenue、order_count 或 units_sold）。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_negative_threshold_001__formal_test_params_030",
+      "query": "请查订单 O13130 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能为负数，请提供一个有效的正整数作为库存阈值。",
+          "status": "needs_improvement",
+          "reason": "虽正确要求正整数阈值，但额外断言库存数量不能为负，工具定义未提供该业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_011",
+      "query": "请查商品 P12111 的当前库存数量。更正：撤回上一句查询要求，本次只汇总销售金额，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "结束日期 2022-09-07 早于开始日期 2022-09-21，请确认日期范围。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_sales_001__formal_test_params_018",
+      "query": "请查 2022-07-24 至 2022-07-29 的销售金额。更正：撤回上一句查询要求，本次只要求把这一日期区间记录的销售金额改为 10000 元，不需要查询统计结果。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售金额记录，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法修改销售金额记录，该操作不在当前工具支持范围内。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改销售金额记录。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改销售金额记录，只能查询销售统计结果。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改销售金额记录。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_multiple_sales_metrics_001__formal_test_params_009",
+      "query": "请查退款申请 R14109 的审核进度。更正：撤回上一句查询要求，本次请同时统计 2022-04-07 至 2022-04-12 的销售金额和订单数量，首尾日期包含，两项指标都要。",
+      "expected_action": "clarify",
+      "reference_message": "请确认先统计该日期区间的销售金额，还是订单数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确需要先处理退款申请 R14109 的审核进度，还是先统计 2022-04-07 至 2022-04-12 的销售金额和订单数量。",
+          "status": "needs_improvement",
+          "reason": "将已撤回的退款查询重新列为待选任务，未正确要求在销售金额与订单数量统计之间选择。",
+          "suggested_message": "请确认先统计该日期区间的销售金额，还是订单数量。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先筛选销售统计指标，还是退款状态查询？",
+          "status": "needs_improvement",
+          "reason": "将已撤回的退款查询重新列为待选任务，未正确要求在销售金额与订单数量统计之间选择。",
+          "suggested_message": "请确认先统计该日期区间的销售金额，还是订单数量。"
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_sales_001__formal_test_params_014",
+      "query": "请查 2022-06-06 至 2022-06-11 的销售金额。更正：撤回上一句查询要求，本次只要求把这一日期区间记录的销售金额改为 10000 元，不需要查询统计结果。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售金额记录，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法修改销售金额记录，该操作不在当前工具支持范围内。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改销售金额记录。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改销售金额记录，只能查询销售统计结果。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改销售金额记录。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_inventory_001__formal_test_params_023",
+      "query": "请查商品 P12123 的当前库存数量。更正：撤回上一句查询要求，本次只要求把这件商品的库存数量改为 100 件，不需要查询库存。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品库存数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_invalid_date_001__formal_test_params_030",
+      "query": "请列出库存数量严格小于 110 件的商品。更正：撤回上一句查询要求，本次只统计 2022-06-31 至 2022-07-05 的售出件数，首尾日期包含。",
+      "expected_action": "clarify",
+      "reference_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确需要查询的统计指标是售出件数（units_sold）还是其他指标。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计售出件数的销售统计指标，是订单数量、销售金额，还是售出件数。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_end_001__formal_test_params_014",
+      "query": "请查商品 P12114 的名称和规格。更正：撤回上一句查询要求，本次只统计从 2022-06-06（含当天）开始的销售金额，结束日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成销售金额的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_start_001__formal_test_params_016",
+      "query": "请查退款申请 R14116 的审核进度。更正：撤回上一句查询要求，本次只统计截至 2022-07-05（含当天）的销售金额，起始日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期以完成销售金额的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_order_001__formal_test_params_005",
+      "query": "请查商品 P12105 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供订单编号以便查询包裹运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_zero_threshold_001__formal_test_params_015",
+      "query": "请查商品 P12115 的名称和规格。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 0 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能严格小于 0 件，请提供有效的库存数量阈值。",
+          "status": "needs_improvement",
+          "reason": "将库存阈值的接口限制误述为库存数量不能小于零，引入工具定义未提供的业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_negative_threshold_001__formal_test_params_004",
+      "query": "请查订单 O13104 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能为负数，请提供一个有效的正整数作为库存阈值。",
+          "status": "needs_improvement",
+          "reason": "虽正确要求正整数阈值，但额外断言库存数量不能为负，工具定义未提供该业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_refund_001__formal_test_params_024",
+      "query": "请查订单 O13124 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询退款状态的退款申请编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号以便查询审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_ambiguous_order_001__formal_test_params_026",
+      "query": "请查商品 P12126 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 O13126 现在的情况，具体查询内容还没确定。",
+      "expected_action": "clarify",
+      "reference_message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您想查询订单 O13126 的具体信息，例如付款状态、运输状态或其他相关内容。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要查询订单 O13126 的付款与处理状态，还是包裹运输与配送状态。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_refund_001__formal_test_params_022",
+      "query": "请查订单 O13122 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询退款状态的退款申请编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号以便查询审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_zero_threshold_001__formal_test_params_008",
+      "query": "请查商品 P12108 的名称和规格。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 0 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能严格小于 0 件，请提供有效的库存数量阈值。",
+          "status": "needs_improvement",
+          "reason": "将库存阈值的接口限制误述为库存数量不能小于零，引入工具定义未提供的业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_027",
+      "query": "请查商品 P12127 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_inventory_001__formal_test_params_011",
+      "query": "请查商品 P12111 的当前库存数量。更正：撤回上一句查询要求，本次只要求把这件商品的库存数量改为 100 件，不需要查询库存。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品库存数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_invalid_date_001__formal_test_params_010",
+      "query": "请列出库存数量严格小于 90 件的商品。更正：撤回上一句查询要求，本次只统计 2022-06-31 至 2022-07-05 的销售金额，首尾日期包含。",
+      "expected_action": "clarify",
+      "reference_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次统计起始日期 2022-06-31 与结束日期 2022-07-05 之间销售金额，请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_021",
+      "query": "请查商品 P12121 的当前库存数量。更正：撤回上一句查询要求，本次只汇总售出件数，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "结束日期 2022-09-07 早于开始日期 2022-09-21，请确认日期范围。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_end_001__formal_test_params_006",
+      "query": "请查商品 P12106 的名称和规格。更正：撤回上一句查询要求，本次只统计从 2022-03-02（含当天）开始的销售金额，结束日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成销售金额的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_fractional_threshold_001__formal_test_params_007",
+      "query": "请查商品 P12107 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于 6.5 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_024",
+      "query": "请查商品 P12124 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_ambiguous_order_001__formal_test_params_025",
+      "query": "请查商品 P12125 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 O13125 现在的情况，具体查询内容还没确定。",
+      "expected_action": "clarify",
+      "reference_message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您想查询订单 O13125 的具体信息，例如付款状态、运输状态或其他相关内容。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要查询订单 O13125 的付款与处理状态，还是包裹运输与配送状态。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_product_001__formal_test_params_027",
+      "query": "请查订单 O13127 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以便查询其当前库存数量。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存数量的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_ambiguous_order_001__formal_test_params_016",
+      "query": "请查商品 P12116 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 O13116 现在的情况，具体查询内容还没确定。",
+      "expected_action": "clarify",
+      "reference_message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您想查询订单 O13116 的具体信息，例如付款状态、运输状态或其他相关内容。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要查询订单 O13116 的付款与处理状态，还是包裹运输与配送状态。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_negative_threshold_001__formal_test_params_007",
+      "query": "请查订单 O13107 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能为负数，请提供一个有效的正整数作为库存阈值。",
+          "status": "needs_improvement",
+          "reason": "虽正确要求正整数阈值，但额外断言库存数量不能为负，工具定义未提供该业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_negative_threshold_001__formal_test_params_017",
+      "query": "请查订单 O13117 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能为负数，请提供一个有效的正整数作为库存阈值。",
+          "status": "needs_improvement",
+          "reason": "虽正确要求正整数阈值，但额外断言库存数量不能为负，工具定义未提供该业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_refund_001__formal_test_params_007",
+      "query": "请查订单 O13107 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询退款状态的退款申请编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号以便查询审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_metric_001__formal_test_params_024",
+      "query": "请列出库存数量严格小于 104 件的商品。更正：撤回上一句查询要求，本次只查询 2022-10-04 至 2022-10-09 的销售统计，首尾日期包含，但我还没有选定统计指标。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请指定需要查询的销售统计指标（revenue、order_count 或 units_sold）。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_product_001__formal_test_params_005",
+      "query": "请查订单 O13105 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以便查询其当前库存数量。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存数量的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_start_001__formal_test_params_023",
+      "query": "请查退款申请 R14123 的审核进度。更正：撤回上一句查询要求，本次只统计截至 2022-09-27（含当天）的订单数量，起始日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期以完成订单数量统计请求。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_product_001__formal_test_params_011",
+      "query": "请查订单 O13111 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以便查询其当前库存数量。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存数量的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_order_001__formal_test_params_004",
+      "query": "请查商品 P12104 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供订单编号以便查询该订单的包裹运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_002",
+      "query": "请查商品 P12102 的当前库存数量。更正：撤回上一句查询要求，本次只汇总售出件数，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "结束日期 2022-09-07 早于开始日期 2022-09-21，请确认日期范围。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_multiple_sales_metrics_001__formal_test_params_001",
+      "query": "请查退款申请 R14101 的审核进度。更正：撤回上一句查询要求，本次请同时统计 2022-01-01 至 2022-01-06 的销售金额和订单数量，首尾日期包含，两项指标都要。",
+      "expected_action": "clarify",
+      "reference_message": "请确认先统计该日期区间的销售金额，还是订单数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确需要先处理退款申请 R14101 的审核进度，还是先统计 2022-01-01 至 2022-01-06 的销售金额和订单数量。",
+          "status": "needs_improvement",
+          "reason": "将已撤回的退款查询重新列为待选任务，未正确要求在销售金额与订单数量统计之间选择。",
+          "suggested_message": "请确认先统计该日期区间的销售金额，还是订单数量。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先统计销售金额，还是订单数量？",
+          "status": "pass",
+          "reason": "正确要求用户在最终仍有效的两项查询之间选择先处理哪一项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_order_001__formal_test_params_010",
+      "query": "请查商品 P12110 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供订单编号以便查询该订单的包裹运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_product_001__formal_test_params_018",
+      "query": "请查订单 O13118 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以便查询其当前库存数量。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存数量的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_end_001__formal_test_params_029",
+      "query": "请查商品 P12129 的名称和规格。更正：撤回上一句查询要求，本次只统计从 2022-12-03（含当天）开始的销售金额，结束日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成销售金额的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_021",
+      "query": "请查商品 P12121 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_address_001__formal_test_params_005",
+      "query": "请查订单 O13105 的包裹运输进度。更正：撤回上一句查询要求，本次只要求把这笔订单的收货地址改为“示例市示例路 18 号”，不需要查询物流。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请确认是否需要修改订单 O13105 的收货地址为 '示例市示例路 18 号'，并明确是否需要其他操作。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先修改订单收货地址，不需要查询物流。请确认要修改的收货地址。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_fractional_threshold_001__formal_test_params_022",
+      "query": "请查商品 P12122 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于 6.5 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_create_refund_001__formal_test_params_007",
+      "query": "请查退款申请 R14107 的审核进度。更正：撤回上一句查询要求，本次只要求为订单 O13107 新建退款申请，不查询已有退款申请。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持创建退款申请，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确是否需要协助创建退款申请，或提供其他相关信息。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要使用的退款申请编号，或确认要创建退款申请的订单编号。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_end_001__formal_test_params_003",
+      "query": "请查商品 P12103 的名称和规格。更正：撤回上一句查询要求，本次只统计从 2022-01-25（含当天）开始的订单数量，结束日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成订单数量统计。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_start_001__formal_test_params_019",
+      "query": "请查退款申请 R14119 的审核进度。更正：撤回上一句查询要求，本次只统计截至 2022-08-10（含当天）的销售金额，起始日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期以完成销售金额的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_price_001__formal_test_params_022",
+      "query": "请查商品 P12122 的名称和规格。更正：撤回上一句查询要求，本次只要求把这件商品的售价改为 199 元，不需要查询商品资料。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品价格。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品售价。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品售价。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_cancel_order_001__formal_test_params_018",
+      "query": "请查订单 O13118 的付款和处理状态。更正：撤回上一句查询要求，本次只要求取消这笔订单，不需要查询订单状态。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持取消订单。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持取消订单的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持取消订单。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持取消订单。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持取消订单。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_address_001__formal_test_params_001",
+      "query": "请查订单 O13101 的包裹运输进度。更正：撤回上一句查询要求，本次只要求把这笔订单的收货地址改为“示例市示例路 18 号”，不需要查询物流。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请确认是否需要修改订单 O13101 的收货地址为 '示例市示例路 18 号'，并明确是否需要其他操作。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "本次先修改订单收货地址，不需要查询物流。请确认要修改的收货地址。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_end_001__formal_test_params_030",
+      "query": "请查商品 P12130 的名称和规格。更正：撤回上一句查询要求，本次只统计从 2022-12-15（含当天）开始的售出件数，结束日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成售出件数的统计。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_fractional_threshold_001__formal_test_params_013",
+      "query": "请查商品 P12113 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于 6.5 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_006",
+      "query": "请查商品 P12106 的当前库存数量。更正：撤回上一句查询要求，本次只汇总销售金额，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "结束日期 2022-09-07 早于开始日期 2022-09-21，请确认日期范围。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_inventory_001__formal_test_params_004",
+      "query": "请查商品 P12104 的当前库存数量。更正：撤回上一句查询要求，本次只要求把这件商品的库存数量改为 100 件，不需要查询库存。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品库存数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_012",
+      "query": "请查商品 P12112 的当前库存数量。更正：撤回上一句查询要求，本次只汇总订单数量，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "结束日期 2022-09-07 早于开始日期 2022-09-21，请确认日期范围。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_product_001__formal_test_params_024",
+      "query": "请查订单 O13124 的付款状态。更正：撤回上一句查询要求，本次只查某件商品的当前库存数量，但我没有提供这件商品的编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以便查询其当前库存数量。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存数量的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充库存查询所缺少的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_create_refund_001__formal_test_params_026",
+      "query": "请查退款申请 R14126 的审核进度。更正：撤回上一句查询要求，本次只要求为订单 O13126 新建退款申请，不查询已有退款申请。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持创建退款申请，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要使用的退款申请类型：创建新退款申请，还是查询已有退款申请。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_ambiguous_order_001__formal_test_params_006",
+      "query": "请查商品 P12106 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 O13106 现在的情况，具体查询内容还没确定。",
+      "expected_action": "clarify",
+      "reference_message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您想查询订单 O13106 的具体信息，例如付款状态、运输状态或其他相关内容。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要查询订单 O13106 的付款与处理状态，还是包裹运输与配送状态。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_ambiguous_order_001__formal_test_params_014",
+      "query": "请查商品 P12114 的当前库存数量。更正：撤回上一句查询要求，本次只想了解订单 O13114 现在的情况，具体查询内容还没确定。",
+      "expected_action": "clarify",
+      "reference_message": "请明确要查询订单付款与处理状态，还是包裹运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您想查询订单 O13114 的具体信息，例如付款状态、运输状态或其他相关内容。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要查询订单 O13114 的付款与处理状态，还是包裹运输与配送状态。",
+          "status": "pass",
+          "reason": "准确要求用户明确订单查询的具体类型，避免擅自选择查询工具。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_return_invalid_category_001__formal_test_params_003",
+      "query": "请查商品 P12103 的名称和规格。更正：撤回上一句查询要求，本次只查询食品类商品的通用退货条件和退货期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货规则查询仅支持电子产品、服装和家居用品，请确认要查询的商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供食品类商品对应的分类参数，当前工具不支持直接查询食品类商品的退货条件和退货期限。",
+          "status": "needs_improvement",
+          "reason": "要求补充食品类对应的分类参数，但食品不在支持枚举中，未引导用户确认支持范围内的商品分类。",
+          "suggested_message": "当前退货规则查询仅支持电子产品、服装和家居用品，请确认要查询的商品分类。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询退货条件和退货期限的商品分类，必须是 electronics、clothing 或 home。",
+          "status": "pass",
+          "reason": "准确说明退货规则查询支持的三类商品，并要求确认查询分类。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_refund_001__formal_test_params_011",
+      "query": "请查订单 O13111 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询退款状态的退款申请编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号以便查询审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_order_001__formal_test_params_024",
+      "query": "请查商品 P12124 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供订单编号以便查询该订单的包裹运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_invalid_date_001__formal_test_params_001",
+      "query": "请列出库存数量严格小于 81 件的商品。更正：撤回上一句查询要求，本次只统计 2022-06-31 至 2022-07-05 的订单数量，首尾日期包含。",
+      "expected_action": "clarify",
+      "reference_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确您是希望统计指定日期范围内的订单数量，还是需要其他操作。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计订单数量是订单总数量，还是指定商品类别的订单数量。",
+          "status": "needs_improvement",
+          "reason": "统计需求已明确；说明未指出起始日期 2022-06-31 无效，反而继续追问统计内容。",
+          "suggested_message": "2022-06-31 不是有效的日历日期，请确认正确的统计起始日期。"
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_order_001__formal_test_params_001",
+      "query": "请查商品 P12101 的名称和规格。更正：撤回上一句查询要求，本次只查某笔订单的包裹运输进度和配送状态，但我没有提供订单编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供订单编号以便查询该订单的包裹运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号。",
+          "status": "pass",
+          "reason": "准确要求补充包裹运输与配送状态查询所缺少的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_negative_threshold_001__formal_test_params_026",
+      "query": "请查订单 O13126 的付款状态。更正：撤回上一句查询要求，本次只列出当前库存数量严格小于 -6 件的商品。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存数量不能为负数，请提供一个有效的正整数作为库存阈值。",
+          "status": "needs_improvement",
+          "reason": "虽正确要求正整数阈值，但额外断言库存数量不能为负，工具定义未提供该业务规则。",
+          "suggested_message": "库存阈值必须为正整数，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确指出库存阈值必须为正整数，并要求用户确认有效阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_metric_001__formal_test_params_022",
+      "query": "请列出库存数量严格小于 102 件的商品。更正：撤回上一句查询要求，本次只查询 2022-09-10 至 2022-09-15 的销售统计，首尾日期包含，但我还没有选定统计指标。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请指定需要查询的销售统计指标（revenue、order_count 或 units_sold）。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户在销售金额、订单数量和售出件数中选择统计指标。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_missing_refund_001__formal_test_params_019",
+      "query": "请查订单 O13119 的处理状态。更正：撤回上一句查询要求，本次只查一笔退款申请的审核进度和退款到账状态，但我没有提供退款申请编号。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询退款状态的退款申请编号。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号以便查询审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充退款状态查询所缺少的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_low_stock_missing_threshold_001__formal_test_params_025",
+      "query": "请查商品 P12125 的当前库存数量。更正：撤回上一句查询要求，本次只列出库存数量严格小于某个阈值的商品，但这个阈值还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要使用的正整数库存阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供库存数量的阈值，以便查询库存数量严格小于该阈值的商品。",
+          "status": "pass",
+          "reason": "准确要求用户补充低库存商品查询所缺少的库存阈值。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要使用的正整数库存阈值。",
+          "status": "pass",
+          "reason": "准确要求用户补充低库存商品查询所缺少的库存阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_modify_inventory_001__formal_test_params_003",
+      "query": "请查商品 P12103 的当前库存数量。更正：撤回上一句查询要求，本次只要求把这件商品的库存数量改为 100 件，不需要查询库存。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品库存数量。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品库存数量。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_missing_start_001__formal_test_params_026",
+      "query": "请查退款申请 R14126 的审核进度。更正：撤回上一句查询要求，本次只统计截至 2022-11-02（含当天）的售出件数，起始日期还没有确定。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期以完成售出件数的统计查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总所缺少的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_create_refund_001__formal_test_params_014",
+      "query": "请查退款申请 R14114 的审核进度。更正：撤回上一句查询要求，本次只要求为订单 O13114 新建退款申请，不查询已有退款申请。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持创建退款申请，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请明确说明是否需要协助创建退款申请，或提供其他具体要求。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要使用的退款申请类型：创建新退款申请，还是查询已有退款申请。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_sales_reversed_dates_001__formal_test_params_001",
+      "query": "请查商品 P12101 的当前库存数量。更正：撤回上一句查询要求，本次只汇总订单数量，统计从 2022-09-21 开始，到 2022-09-07 结束，起止两天都计入。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "日期范围不正确，结束日期不得早于开始日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计起始日期 2022-09-21 不能晚于结束日期 2022-09-07，请确认要统计的起止日期。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，需要修正日期范围。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_test_correction_cancel_order_001__formal_test_params_001",
+      "query": "请查订单 O13101 的付款和处理状态。更正：撤回上一句查询要求，本次只要求取消这笔订单，不需要查询订单状态。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持取消订单。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持取消订单的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持取消订单。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持取消订单。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持取消订单。",
+          "suggested_message": null
+        }
+      }
+    }
+  ]
+}

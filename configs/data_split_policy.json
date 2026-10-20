@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "status": "planned",
+  "language": "zh",
+  "split_names": [
+    "train",
+    "validation",
+    "test"
+  ],
+  "assignment_unit": "family_id",
+  "development_examples_split": "train",
+  "disjoint_fields": [
+    "family_id",
+    "query"
+  ],
+  "parameter_isolation": {
+    "id_fields": [
+      "product_id",
+      "order_id",
+      "refund_id"
+    ],
+    "valid_date_ranges": "disjoint",
+    "positive_threshold_values": "disjoint",
+    "shared_enums": [
+      "category",
+      "metric"
+    ],
+    "allow_shared_invalid_boundary_values": true
+  },
+  "evaluation": {
+    "validation_role": "model_and_hyperparameter_selection",
+    "test_role": "final_evaluation_after_lock",
+    "allow_test_tuning": false
+  },
+  "shuffle_seed": 42
+}

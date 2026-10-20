@@ -1,0 +1,1825 @@
+{
+  "review_version": 1,
+  "stage": "formal",
+  "review_type": "paired_non_call_messages",
+  "sources": {
+    "baseline": {
+      "source_result": "results/formal/validation/validation_batch_20261017T010418_932868Z.jsonl",
+      "source_result_sha256": "8f349c585178b53676c3f94fe0a9522a7f38eb44f18440abd2635751f0e3d298",
+      "run_info": {
+        "stage": "formal",
+        "mode": "validation_baseline",
+        "sample_selection": "all",
+        "model_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/models/qwen3_8b_4bit",
+        "adapter_path": null,
+        "checkpoint_path": null,
+        "checkpoint_sha256": null,
+        "adapter_config_sha256": null,
+        "train_data_sha256": null,
+        "generation_config": {
+          "enable_thinking": false,
+          "temperature": 0.0,
+          "max_tokens": 256
+        },
+        "data_sha256": "e1dfe47ce1863b2ce98ca88ca766779b4eb38386e150b04a2629eaa25e480bc2",
+        "system_content_sha256": "fce2a9bb8a4f8531bb03f66962482f5f075a6fbe3d48e1281b67961fb8d4c857"
+      }
+    },
+    "step450": {
+      "source_result": "results/formal/validation/validation_lora_batch_20261017T024653_099789Z.jsonl",
+      "source_result_sha256": "755b20818e009ef59f3172293a37d896d026802bc31d82c78ba47fd0d2d3c343",
+      "run_info": {
+        "stage": "formal",
+        "mode": "validation_lora",
+        "sample_selection": "all",
+        "model_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/models/qwen3_8b_4bit",
+        "adapter_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/adapters/formal/run_20261017T014551_717380Z",
+        "checkpoint_path": "/Users/eternally/Desktop/求职相关/个人项目/tool_calling_finetuning/adapters/formal/run_20261017T014551_717380Z/0000450_adapters.safetensors",
+        "checkpoint_sha256": "a53e4c9f7fd3a8a449343bbdcf7f823bdc538d0b00ae77fff958ccb12c074e6b",
+        "adapter_config_sha256": "4f2175e09bb6091e720c4c11ac80ea00bb2b25e8a1da38cfe90e9b4c9834d178",
+        "train_data_sha256": "5424b77d12f767004f7d0ece6c385aac5b60b9621daa82ed351414a4bfa0f837",
+        "generation_config": {
+          "enable_thinking": false,
+          "temperature": 0.0,
+          "max_tokens": 256
+        },
+        "data_sha256": "e1dfe47ce1863b2ce98ca88ca766779b4eb38386e150b04a2629eaa25e480bc2",
+        "system_content_sha256": "fce2a9bb8a4f8531bb03f66962482f5f075a6fbe3d48e1281b67961fb8d4c857"
+      }
+    }
+  },
+  "criteria": [
+    "clarify 应指出实际需要补充、修正或澄清的信息。",
+    "unsupported 应准确说明当前不支持的具体操作。",
+    "说明不得编造业务事实、工具能力，或声称已完成操作。",
+    "按语义判断，不要求与 reference_message 逐字一致。"
+  ],
+  "allowed_statuses": [
+    "pending",
+    "pass",
+    "needs_improvement",
+    "not_applicable"
+  ],
+  "items": [
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_026",
+      "query": "页面只列出订单编号 O10126 和商品编号 P9126，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供退款申请编号才能查询退款审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充退款申请编号，以便查询退款审核进度和到账状态。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充退款申请编号，并说明订单编号不能替代。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_012",
+      "query": "页面只列出订单编号 O10112 和商品编号 P9112，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您提到的退款审核和退款到账状态需要提供退款申请编号才能查询，请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_004",
+      "query": "页面有订单 O10104 和退款申请 R11104，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明不能执行退款，补充的退款状态查询能力有 get_refund_status 工具定义支持。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_007",
+      "query": "页面有订单 O10107 和退款申请 R11107，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_019",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2023-08-05（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_rename_product_001__formal_validation_params_024",
+      "query": "页面上有订单编号 O10124 和商品编号 P9124；请把这件商品的名称改为“便携款”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品名称。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品名称，需通过商品信息管理接口进行操作。",
+          "status": "needs_improvement",
+          "reason": "正确说明无法修改商品名称，但引入了当前工具定义未提供、也未验证可用的商品信息管理接口。",
+          "suggested_message": "当前工具不支持修改商品名称。"
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品名称。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品名称。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_rename_product_001__formal_validation_params_005",
+      "query": "页面上有订单编号 O10105 和商品编号 P9105；请把这件商品的名称改为“便携款”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品名称。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品名称，需通过商品信息管理接口进行操作。",
+          "status": "needs_improvement",
+          "reason": "正确说明无法修改商品名称，但引入了当前工具定义未提供、也未验证可用的商品信息管理接口。",
+          "suggested_message": "当前工具不支持修改商品名称。"
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品名称。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品名称。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_029",
+      "query": "页面有订单 O10129 和退款申请 R11129，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_028",
+      "query": "销售汇总条件：统计项=销售金额；截止日=2023-11-26（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_023",
+      "query": "页面有订单 O10123 和退款申请 R11123，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_001",
+      "query": "页面只显示订单编号 O10101，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_028",
+      "query": "页面只列出订单编号 O10128 和商品编号 P9128，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供退款申请编号才能查询退款审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_invalid_date_001__formal_validation_params_002",
+      "query": "销售汇总条件：统计项=售出件数；起始日=2025-04-31；截止日=2025-05-05。",
+      "expected_action": "clarify",
+      "reference_message": "起始日期 2025-04-31 不是有效的日历日期，请确认正确的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_update_001__formal_validation_params_009",
+      "query": "销售汇总条件：统计项=售出件数；起始日=2023-04-07；截止日=2023-04-12；操作=将统计结果修改为 10000。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售统计结果，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "操作描述中的'将统计结果修改为 10000'无法被理解，无法确定具体需求。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计结果不能修改，只能查询指定日期范围内的售出件数。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_invalid_date_001__formal_validation_params_006",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2025-04-31；截止日=2025-05-05。",
+      "expected_action": "clarify",
+      "reference_message": "起始日期 2025-04-31 不是有效的日历日期，请确认正确的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_update_001__formal_validation_params_016",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2023-06-30；截止日=2023-07-05；操作=将统计结果修改为 10000。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售统计结果，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "操作描述中的'将统计结果修改为 10000'无法被当前工具支持，请确认是否需要其他操作或澄清需求。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计结果不能修改，只能查询指定日期范围内的销售金额。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_address_update_001__formal_validation_params_027",
+      "query": "商品编号 P9127 和订单编号 O10127 都在这里，请把这笔订单的收货地址改为“示例市示例路 8 号”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单收货地址的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单收货地址。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_015",
+      "query": "销售汇总条件：统计项=订单数量；起始日=2023-06-18（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_invalid_category_001__formal_validation_params_008",
+      "query": "页面显示商品编号 P9108、订单编号 O10108，商品分类填写为食品。我只问这个分类通用的退货条件和期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_030",
+      "query": "页面有订单 O10130 和退款申请 R11130，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_low_stock_negative_threshold_001__formal_validation_params_001",
+      "query": "商品筛选条件：库存件数严格小于 -4；输出=符合条件的商品列表。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "库存件数不能为负数，当前工具不支持该请求。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确说明库存阈值必须大于零，并要求用户确认正整数阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_026",
+      "query": "页面只显示订单编号 O10126，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_020",
+      "query": "销售汇总条件：统计项=售出件数；起始日=2023-08-17（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_metric_001__formal_validation_params_024",
+      "query": "请按以下条件做一次销售汇总：起始日=2023-10-04；截止日=2023-10-09；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户明确销售汇总的统计指标，并列出工具支持的三个选项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_low_stock_missing_threshold_001__formal_validation_params_001",
+      "query": "商品筛选条件：库存偏低；输出=符合条件的商品列表。",
+      "expected_action": "clarify",
+      "reference_message": "请提供用于筛选低库存商品的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_multiple_metrics_001__formal_validation_params_018",
+      "query": "销售汇总条件：起始日=2023-07-24；截止日=2023-07-29；统计项=销售金额、订单数量；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "本次先统计销售金额，还是订单数量？",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您请求的销售汇总需要同时查询两个不同的统计指标（销售金额和订单数量），但系统每次只能处理一个统计指标。请明确您需要哪一个统计指标进行查询。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额，还是订单数量。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_007",
+      "query": "我手上只有商品编号 P9107，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_invalid_category_001__formal_validation_params_004",
+      "query": "页面显示商品编号 P9104、订单编号 O10104，商品分类填写为食品。我只问这个分类通用的退货条件和期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_reversed_dates_001__formal_validation_params_006",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2025-08-20；截止日=2025-08-10。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "截止日不得早于起始日，请确认日期是否正确。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "起始日期不能晚于截止日期，请确认要统计起始日和截止日。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_008",
+      "query": "销售汇总条件：统计项=销售金额；截止日=2023-03-31（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_rename_product_001__formal_validation_params_015",
+      "query": "页面上有订单编号 O10115 和商品编号 P9115；请把这件商品的名称改为“便携款”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品名称。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品名称的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品名称。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品名称。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品名称。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_017",
+      "query": "页面列着商品编号 P9117 和订单编号 O10117，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_024",
+      "query": "我手上只有商品编号 P9124，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_001",
+      "query": "我手上只有商品编号 P9101，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_multiple_metrics_001__formal_validation_params_016",
+      "query": "销售汇总条件：起始日=2023-06-30；截止日=2023-07-05；统计项=销售金额、订单数量；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "本次先统计销售金额，还是订单数量？",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您请求的销售汇总需要同时查询两个不同的统计指标（销售金额和订单数量），但系统每次只能处理一个统计指标。请明确您需要哪一个统计指标进行查询。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额还是订单数量。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_020",
+      "query": "页面只列出订单编号 O10120 和商品编号 P9120，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您提到的退款审核和退款到账状态需要提供退款申请编号才能查询，请提供退款申请编号。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_address_update_001__formal_validation_params_005",
+      "query": "商品编号 P9105 和订单编号 O10105 都在这里，请把这笔订单的收货地址改为“示例市示例路 8 号”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单的收货地址。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单收货地址。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_005",
+      "query": "页面列着商品编号 P9105 和订单编号 O10105，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_009",
+      "query": "页面有订单 O10109 和退款申请 R11109，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_027",
+      "query": "我手上只有商品编号 P9127，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_update_001__formal_validation_params_012",
+      "query": "销售汇总条件：统计项=订单数量；起始日=2023-05-13；截止日=2023-05-18；操作=将统计结果修改为 10000。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售统计结果，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "操作描述中的'将统计结果修改为 10000'不符合当前工具的使用方式，请明确需要进行的操作。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计结果不能修改，请确认要统计起始日和截止日。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_027",
+      "query": "页面列着商品编号 P9127 和订单编号 O10127，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_003",
+      "query": "页面只列出订单编号 O10103 和商品编号 P9103，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供退款申请编号才能查询退款审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持查询订单退款状态。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_multiple_metrics_001__formal_validation_params_010",
+      "query": "销售汇总条件：起始日=2023-04-19；截止日=2023-04-24；统计项=销售金额、订单数量；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "本次先统计销售金额，还是订单数量？",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您请求的销售汇总需要同时查询两个不同的统计指标（销售金额和订单数量），但当前工具只能支持一个统计指标的查询。请明确您需要哪一个统计指标。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额，还是订单数量。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_008",
+      "query": "我手上只有商品编号 P9108，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_invalid_category_001__formal_validation_params_019",
+      "query": "页面显示商品编号 P9119、订单编号 O10119，商品分类填写为食品。我只问这个分类通用的退货条件和期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_012",
+      "query": "页面只显示订单编号 O10112，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_reversed_dates_001__formal_validation_params_001",
+      "query": "销售汇总条件：统计项=订单数量；起始日=2025-08-20；截止日=2025-08-10。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "截止日不得早于起始日，请检查日期是否正确。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "起始日期不能晚于截止日期，请确认要统计的起始日和截止日。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_030",
+      "query": "销售汇总条件：统计项=售出件数；截止日=2023-12-15（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_multiple_metrics_001__formal_validation_params_005",
+      "query": "销售汇总条件：起始日=2023-02-18；截止日=2023-02-23；统计项=销售金额、订单数量；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "本次先统计销售金额，还是订单数量？",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您请求的销售汇总需要同时查询两个不同的统计指标（销售金额和订单数量），但当前工具只能支持一个统计指标的查询。请明确您需要哪一个统计指标。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额，还是订单数量。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_010",
+      "query": "页面列着商品编号 P9110 和订单编号 O10110，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_016",
+      "query": "页面列着商品编号 P9116 和订单编号 O10116，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_002",
+      "query": "销售汇总条件：统计项=售出件数；起始日=2023-01-13（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_stock_update_001__formal_validation_params_026",
+      "query": "库存调整条件：商品编号=P9126；目标库存=60；操作=写入新的库存数量。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品库存数量，只能查询库存信息。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接写入或调整库存数量的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持写入或修改商品库存数量。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品库存数量。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持写入或修改商品库存数量。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_025",
+      "query": "页面只列出订单编号 O10125 和商品编号 P9125，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供退款申请编号才能查询退款审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_update_001__formal_validation_params_029",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2023-12-03；截止日=2023-12-08；操作=将统计结果修改为 10000。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改销售统计结果，只能查询销售统计。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "操作字段的描述不明确，无法理解'将统计结果修改为 10000'的具体含义。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "统计结果不能修改，只能查询指定日期范围内的销售金额。",
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_low_stock_fractional_threshold_001__formal_validation_params_001",
+      "query": "商品筛选条件：库存件数严格小于 4.5；输出=符合条件的商品列表。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须为正整数，请确认要使用的整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零且为整数，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确说明阈值须为正整数，并要求用户确认正确阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_014",
+      "query": "页面有订单 O10114 和退款申请 R11114，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_multiple_metrics_001__formal_validation_params_011",
+      "query": "销售汇总条件：起始日=2023-05-01；截止日=2023-05-06；统计项=销售金额、订单数量；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "本次先统计销售金额，还是订单数量？",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您请求的销售汇总需要同时查询两个不同的统计指标（销售金额和订单数量），但当前工具只能支持一个统计指标的查询。请明确您需要哪一个统计指标。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额，还是订单数量。",
+          "status": "pass",
+          "reason": "准确要求用户明确本次先统计销售金额还是订单数量，符合每次只处理一个统计指标的限制。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_low_stock_zero_threshold_001__formal_validation_params_001",
+      "query": "商品筛选条件：库存件数严格小于 0；输出=符合条件的商品列表。",
+      "expected_action": "clarify",
+      "reference_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "库存件数不能为负数，请确认筛选条件中的库存件数是否为正整数。",
+          "status": "needs_improvement",
+          "reason": "虽要求确认正整数，但混淆了筛选阈值与实际库存数量，并引入工具定义未提供的库存非负业务规则。",
+          "suggested_message": "库存阈值必须大于零，请确认要使用的正整数阈值。"
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "库存阈值必须大于零，请确认要使用的正整数阈值。",
+          "status": "pass",
+          "reason": "准确说明库存阈值必须大于零，并要求用户确认正整数阈值。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_020",
+      "query": "页面只显示订单编号 O10120，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_reversed_dates_001__formal_validation_params_002",
+      "query": "销售汇总条件：统计项=售出件数；起始日=2025-08-20；截止日=2025-08-10。",
+      "expected_action": "clarify",
+      "reference_message": "结束日期早于起始日期，请确认正确的统计起止日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "截止日不得早于起始日，请确认日期是否正确。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "起始日期不能晚于截止日期，请确认要统计起始日和截止日。",
+          "status": "pass",
+          "reason": "准确指出结束日期早于起始日期，并要求用户确认正确的统计起止日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_rename_product_001__formal_validation_params_012",
+      "query": "页面上有订单编号 O10112 和商品编号 P9112；请把这件商品的名称改为“便携款”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改商品名称。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "无法直接修改商品名称，需通过商品信息管理接口进行操作。",
+          "status": "needs_improvement",
+          "reason": "正确说明无法修改商品名称，但引入了当前工具定义未提供、也未验证可用的商品信息管理接口。",
+          "suggested_message": "当前工具不支持修改商品名称。"
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改商品名称。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改商品名称。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_019",
+      "query": "页面只显示订单编号 O10119，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_address_update_001__formal_validation_params_024",
+      "query": "商品编号 P9124 和订单编号 O10124 都在这里，请把这笔订单的收货地址改为“示例市示例路 8 号”。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持修改订单收货地址。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单收货地址的操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持修改订单收货地址。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持修改订单收货地址。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_012",
+      "query": "销售汇总条件：统计项=订单数量；起始日=2023-05-13（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期以完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_metric_001__formal_validation_params_004",
+      "query": "请按以下条件做一次销售汇总：起始日=2023-02-06；截止日=2023-02-11；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户明确销售汇总的统计指标，并列出工具支持的三个选项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_metric_001__formal_validation_params_001",
+      "query": "请按以下条件做一次销售汇总：起始日=2023-01-01；截止日=2023-01-06；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户明确销售汇总的统计指标，并列出工具支持的三个选项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_ambiguous_order_001__formal_validation_params_019",
+      "query": "页面列着商品编号 P9119 和订单编号 O10119，请查查这笔订单目前的情况。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要查询订单的付款与处理状态，还是包裹的运输与配送状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_invalid_date_001__formal_validation_params_001",
+      "query": "销售汇总条件：统计项=订单数量；起始日=2025-04-31；截止日=2025-05-05。",
+      "expected_action": "clarify",
+      "reference_message": "起始日期 2025-04-31 不是有效的日历日期，请确认正确的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_refund_001__formal_validation_params_027",
+      "query": "页面只列出订单编号 O10127 和商品编号 P9127，没有退款申请编号；我想知道退款审核到哪一步、钱是否到账。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询的退款申请编号，订单编号和商品编号都不能代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供退款申请编号才能查询退款审核进度和退款到账状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供退款申请编号；查询退款状态不能用订单编号代替。",
+          "status": "pass",
+          "reason": "准确要求补充查询退款状态所需的退款申请编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_end_001__formal_validation_params_016",
+      "query": "销售汇总条件：统计项=销售金额；起始日=2023-06-30（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的结束日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供结束日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计结束日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的结束日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_003",
+      "query": "销售汇总条件：统计项=订单数量；截止日=2023-01-30（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_021",
+      "query": "销售汇总条件：统计项=售出件数；截止日=2023-09-03（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_order_001__formal_validation_params_006",
+      "query": "我手上只有商品编号 P9106，没有订单编号；现在要查询包裹的运输进度和配送状态。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询包裹运输与配送状态的订单编号，不能用商品编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "您需要提供订单编号才能查询包裹的运输进度和配送状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询包裹运输进度和配送状态的订单编号；查询商品信息不能用于获取包裹运输状态。",
+          "status": "pass",
+          "reason": "准确要求补充查询包裹运输与配送状态所需的订单编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_metric_001__formal_validation_params_028",
+      "query": "请按以下条件做一次销售汇总：起始日=2023-11-21；截止日=2023-11-26；首尾日期都包含。",
+      "expected_action": "clarify",
+      "reference_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请确认要统计销售金额、订单数量，还是售出件数。",
+          "status": "pass",
+          "reason": "准确要求用户明确销售汇总的统计指标，并列出工具支持的三个选项。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_invalid_category_001__formal_validation_params_010",
+      "query": "页面显示商品编号 P9110、订单编号 O10110，商品分类填写为食品。我只问这个分类通用的退货条件和期限。",
+      "expected_action": "clarify",
+      "reference_message": "当前退货政策查询仅支持电子产品、服装和家居用品，请确认要查询的受支持商品分类。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "call",
+          "model_message": null,
+          "status": "not_applicable",
+          "reason": "动作或接口未通过自动检查。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_fields_sales_missing_start_001__formal_validation_params_001",
+      "query": "销售汇总条件：统计项=订单数量；截止日=2023-01-06（含当天）。",
+      "expected_action": "clarify",
+      "reference_message": "请提供销售汇总的起始日期。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供起始日期，以便完成销售汇总查询。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供统计起始日期。",
+          "status": "pass",
+          "reason": "准确要求补充销售汇总的起始日期。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_missing_product_001__formal_validation_params_018",
+      "query": "页面只显示订单编号 O10118，找不到商品编号；我想知道其中那件商品当前还有多少库存。",
+      "expected_action": "clarify",
+      "reference_message": "请提供需要查询库存的商品编号，不能用订单编号代替。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "clarify",
+          "model_message": "请提供商品编号以查询库存。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "clarify",
+          "model_message": "请提供要查询库存的商品编号。",
+          "status": "pass",
+          "reason": "准确要求补充用于查询库存的商品编号。",
+          "suggested_message": null
+        }
+      }
+    },
+    {
+      "id": "formal_validation_mixed_ids_execute_refund_001__formal_validation_params_026",
+      "query": "页面有订单 O10126 和退款申请 R11126，请直接执行退款，把钱退回支付账户。",
+      "expected_action": "unsupported",
+      "reference_message": "当前工具不支持执行退款，只能查询已有退款申请的状态。",
+      "outputs": {
+        "baseline": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持直接执行退款操作。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        },
+        "step450": {
+          "predicted_action": "unsupported",
+          "model_message": "当前工具不支持执行退款操作，只能查询退款申请的状态。",
+          "status": "pass",
+          "reason": "准确说明当前工具不支持执行退款操作。",
+          "suggested_message": null
+        }
+      }
+    }
+  ]
+}

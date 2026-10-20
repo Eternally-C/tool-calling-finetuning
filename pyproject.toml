@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tool-calling-finetuning"
+version = "0.1.0"
+description = "Parameter-efficient fine-tuning and reliability evaluation for tool calling."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "mlx==0.32.3",
+    "mlx-lm==0.32.0",
+    "transformers==5.19.0",
+    "numpy==2.5.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tool_calling*"]
+namespaces = false

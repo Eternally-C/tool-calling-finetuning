@@ -1,0 +1,264 @@
+[
+  {
+    "template_id": "inventory_direct_001",
+    "family_id": "inventory_direct_quantity",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "商品 {product_id} 现在还有多少库存？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "inventory_direct_002",
+    "family_id": "inventory_direct_quantity",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "商品 {product_id} 的库存是多少？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "inventory_direct_003",
+    "family_id": "inventory_direct_quantity",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "帮我查询商品 {product_id} 的库存数量。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_inventory",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "low_stock_below_001",
+    "family_id": "low_stock_below_threshold",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "列出库存数量严格少于 {threshold} 件的商品。",
+    "expected_template": {
+      "action": "call",
+      "name": "list_low_stock_products",
+      "arguments": {
+        "threshold": "{threshold}"
+      }
+    }
+  },
+  {
+    "template_id": "order_status_direct_001",
+    "family_id": "order_status_direct_query",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "帮我查询订单 {order_id} 的付款状态和订单处理状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_order_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "shipping_progress_direct_001",
+    "family_id": "shipping_progress_direct_query",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "订单 {order_id} 的包裹运输到哪里了？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_shipping_status",
+      "arguments": {
+        "order_id": "{order_id}"
+      }
+    }
+  },
+  {
+    "template_id": "product_info_direct_001",
+    "family_id": "product_info_direct_query",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "请介绍商品 {product_id} 的名称和规格。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_product_info",
+      "arguments": {
+        "product_id": "{product_id}"
+      }
+    }
+  },
+  {
+    "template_id": "refund_status_direct_001",
+    "family_id": "refund_status_direct_query",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "查询退款申请 {refund_id} 的审核进度和到账状态。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_refund_status",
+      "arguments": {
+        "refund_id": "{refund_id}"
+      }
+    }
+  },
+  {
+    "template_id": "return_policy_category_001",
+    "family_id": "return_policy_category_query",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "{category_zh}类商品的通用退货条件和退货期限是什么？",
+    "expected_template": {
+      "action": "call",
+      "name": "get_return_policy",
+      "arguments": {
+        "category": "{category}"
+      }
+    }
+  },
+  {
+    "template_id": "sales_revenue_range_001",
+    "family_id": "sales_summary_direct_range",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "统计 {start_date} 至 {end_date} 的销售金额。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "revenue"
+      }
+    }
+  },
+  {
+    "template_id": "inventory_missing_product_id_001",
+    "family_id": "inventory_missing_product_id",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "帮我查一下这件商品还有多少库存。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请提供需要查询的商品编号。"
+    }
+  },
+  {
+    "template_id": "sales_missing_metric_001",
+    "family_id": "sales_summary_missing_metric",
+    "split": "train",
+    "case_type": "missing_parameter",
+    "query_template": "统计 {start_date} 至 {end_date} 的销售数据。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请明确要统计销售金额、订单数量，还是售出件数。"
+    }
+  },
+  {
+    "template_id": "cancel_order_direct_001",
+    "family_id": "cancel_order_direct_request",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "请取消订单 {order_id}。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持取消订单。"
+    }
+  },
+  {
+    "template_id": "stock_update_direct_001",
+    "family_id": "stock_update_direct_request",
+    "split": "train",
+    "case_type": "unsupported_operation",
+    "query_template": "把商品 {product_id} 的库存数量修改为 50 件。",
+    "expected_template": {
+      "action": "unsupported",
+      "message": "当前工具不支持修改商品库存。"
+    }
+  },
+  {
+    "template_id": "low_stock_zero_threshold_001",
+    "family_id": "low_stock_invalid_threshold_direct",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "列出库存数量严格少于 0 件的商品。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "库存阈值必须是大于零的整数，请提供有效的阈值。"
+    }
+  },
+  {
+    "template_id": "sales_reversed_dates_001",
+    "family_id": "sales_reversed_date_range_direct",
+    "split": "train",
+    "case_type": "invalid_parameter",
+    "query_template": "统计 {end_date} 至 {start_date} 的销售金额。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "结束日期早于开始日期，请确认查询日期范围。"
+    }
+  },
+  {
+    "template_id": "order_ambiguous_001",
+    "family_id": "order_general_status_question",
+    "split": "train",
+    "case_type": "ambiguous_intent",
+    "query_template": "帮我查一下订单 {order_id} 的情况。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请明确要查询订单付款与处理状态，还是包裹物流进度。"
+    }
+  },
+  {
+    "template_id": "inventory_shipping_combined_001",
+    "family_id": "inventory_and_shipping_combined_request",
+    "split": "train",
+    "case_type": "multiple_tasks",
+    "query_template": "查询商品 {product_id} 的库存，并查询订单 {order_id} 的包裹运输进度。",
+    "expected_template": {
+      "action": "clarify",
+      "message": "请明确本次先查询商品库存，还是订单物流。"
+    }
+  },
+  {
+    "template_id": "sales_order_count_range_001",
+    "family_id": "sales_summary_direct_range",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "统计 {start_date} 至 {end_date} 的订单数量。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "order_count"
+      }
+    }
+  },
+  {
+    "template_id": "sales_units_sold_range_001",
+    "family_id": "sales_summary_direct_range",
+    "split": "train",
+    "case_type": "valid_call",
+    "query_template": "统计 {start_date} 至 {end_date} 的商品销售总件数。",
+    "expected_template": {
+      "action": "call",
+      "name": "get_sales_summary",
+      "arguments": {
+        "start_date": "{start_date}",
+        "end_date": "{end_date}",
+        "metric": "units_sold"
+      }
+    }
+  }
+]

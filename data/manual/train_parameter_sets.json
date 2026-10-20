@@ -1,0 +1,32 @@
+[
+  {
+    "parameter_set_id": "train_params_001",
+    "product_id": "P4101",
+    "order_id": "O4101",
+    "refund_id": "R4101",
+    "category": "clothing",
+    "start_date": "2026-07-01",
+    "end_date": "2026-07-31",
+    "threshold": 1
+  },
+  {
+    "parameter_set_id": "train_params_002",
+    "product_id": "P4102",
+    "order_id": "O4102",
+    "refund_id": "R4102",
+    "category": "electronics",
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-20",
+    "threshold": 10
+  },
+  {
+    "parameter_set_id": "train_params_003",
+    "product_id": "P4103",
+    "order_id": "O4103",
+    "refund_id": "R4103",
+    "category": "home",
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-30",
+    "threshold": 25
+  }
+]
