@@ -80,7 +80,7 @@ Validation 的合并通过率提高了 4.5 个百分点，
 
 已使用的本机环境：
 
-- Apple Silicon MacBook Pro M5 Pro，24GB 统一内存。
+- 验证平台：macOS arm64，24GB 统一内存。
 - Python 3.12.15。
 - MLX 0.32.3、MLX-LM 0.32.0。
 - Transformers 5.19.0、NumPy 2.5.4。
@@ -104,7 +104,8 @@ Validation 的合并通过率提高了 4.5 个百分点，
 
 ## 安装与开发样例运行
 
-适用于 Apple Silicon macOS。以下命令均在项目根目录执行。
+以下命令已在 macOS arm64 环境验证，均在项目根目录执行。
+其他平台的完整训练与推理流程尚未验证。
 
 ### 1. 安装环境与依赖
 
